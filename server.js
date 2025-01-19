@@ -16,7 +16,9 @@ app.use('/user/task',taskRouter)
 app.get("/",(req,res)=>{
   res.send("hello there")
 })
-mongoose.connect('mongodb://localhost:27017/userauth')
+
+// const DBURI = mongodb+srv://shafi02367:<db_password>@taskcluster.piktc.mongodb.net/?retryWrites=true&w=majority&appName=taskCluster"
+mongoose.connect(process.env.DBURI)
   .then(() => console.log('Connected to DB'))
   .catch(err => console.error('Failed to connect to DB', err));
 
